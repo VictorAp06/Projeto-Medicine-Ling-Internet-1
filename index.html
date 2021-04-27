@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Página Inicial</title>
 </head>
 <body>
@@ -14,7 +14,13 @@
         <nav>
             <ul class="menu">
                 <li><a href="#">Sobre</a></li>
-                <li><a href="#">Serviços</a></li>
+                <li>
+                    <a href="#">Serviços</a>
+                    <ul>
+                        <li><a href="cadastro.php">Cadastrar Paciente</a></li>
+                        <li><a href="consultar-paciente.php">Consultar Pacientes</a></li>
+                    </ul>
+                </li>
                 <li><a href="#">Contato</a></li>
             </ul>
         </nav>
@@ -40,14 +46,18 @@
             <p>Médico</p>
         </div>
         <div>
-            <img src="img/img5.jpg" alt="Caveira Humana">
-            <p>Caveira Humana</p>
+            <img src="img/img5.jpg" alt="Vacina">
+            <p>Vacina</p>
         </div>
         <div>
             <img src="img/img6.jpg" alt="Estetoscópio">
             <p>Estetoscópio</p>
         </div>
     </section>
+
+    <footer class="footer">
+        <p>&copy; Victor Aparecido 2021</p>
+    </footer>
 
 </body>
 </html>

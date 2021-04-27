@@ -32,17 +32,38 @@ img {
 }
 
 .menu {
+    position: relative;
     display: flex;
-}
-
-.menu li {
-    margin-left: 1.2rem;
 }
 
 .menu li a {
     display: block;
     padding: 10px;
 }
+
+.menu ul li{
+    background-color: #1c928b;
+    display: flex;
+}
+
+.menu ul li a{
+    display: block;
+}
+
+.menu ul{
+    position: absolute;
+    visibility: hidden;
+}
+
+.menu a:hover {
+    background-color: #f4f4f4;
+    color: #555;
+}
+
+.menu li:hover ul{
+    visibility: visible;
+}
+  
 
 /*CSS FLEXBOX*/
 
@@ -56,4 +77,12 @@ img {
 .flex > div {
     flex: 1 1 200px;
     margin: 10px;
+}
+
+/*Footer*/
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 3rem;
 }
