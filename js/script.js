@@ -8,6 +8,12 @@ function mascara_cpf() {
     }
 }
 
+var form = document.getElementById("atualiza-cadastro");
+
+if(form.addEventListener) {
+  form.addEventListener("submit", validaCadastro);
+} 
+
 var form = document.getElementById("cadastro");
 
 if(form.addEventListener) {
@@ -25,7 +31,6 @@ function validaCadastro(evento){
   var profissao = document.getElementById('profissao');
   var plano = document.getElementById('plano');
   var registro = document.getElementById('registro');
-  var titular = document.getElementById('titular');
   var acomodacao = document.getElementById('acomodacao');
   var telefone = document.getElementById('telefone');
   var email = document.getElementById('email');
@@ -39,7 +44,7 @@ function validaCadastro(evento){
   } else {
     campo_nome.style.display = 'none';
   }
-
+  
   campo_cpf = document.querySelector('.msg-cpf');
   if(cpf.value == '') {
     campo_cpf.innerHTML = "Favor preencher o CPF";
@@ -62,12 +67,12 @@ function validaCadastro(evento){
   for (var i = 0; i < radios.length; i++) {
       if (radios[i].checked) {
         aux = 1;
-        erro += 1;
       } 
   }
 
   if(aux == 0){
     campo_sexo.innerHTML = "Favor selecione o sexo";
+    erro += 1;
   } else {
     campo_sexo.style.display = 'none';
   }
@@ -118,14 +123,6 @@ function validaCadastro(evento){
     erro += 1;
   } else {
     campo_registro.style.display = 'none';
-  }
-
-  campo_titular = document.querySelector('.msg-titular');
-  if(titular.value == '') {
-    campo_titular.innerHTML = "Favor adicionar o titular";
-    erro += 1;
-  } else {
-    campo_titular.style.display = 'none';
   }
 
   campo_acomodacao = document.querySelector('.msg-acomodacao');

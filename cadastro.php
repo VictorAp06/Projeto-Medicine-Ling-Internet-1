@@ -12,7 +12,7 @@
         <h1>Cadastro Paciente</h1>
         <form id="cadastro" action="cadastrar.php" method="POST">
                 <div class="campo">
-                    <label for="name">Nome completo</label>
+                    <label for="nome">Nome completo</label>
                     <input type="text" name="nome" id="nome" maxlength="100">
                     <span class="msg-erro msg-nome"></span>
                 </div>
@@ -29,8 +29,8 @@
                 <div class="campo rdsexo">
                     <label for="rd-sexo">Sexo</label>
                     <p>
-                        <input type="radio" name="rdsexo" value="Masculino">Masculino
-                        <input type="radio" name="rdsexo" value="Feminino">Feminino
+                        <input type="radio" name="rdsexo" value="M">Masculino
+                        <input type="radio" name="rdsexo" value="F">Feminino
                     </p>
                     <span class="msg-erro msg-sexo"></span>
                 </div>
@@ -104,11 +104,6 @@
                     <span class='msg-erro msg-registro'></span>
                 </div>
                 <div class="campo">
-                    <label for="titular">Titular do plano</label>
-                    <input type="text" name="titular" id="titular" maxlength="100">
-                    <span class='msg-erro msg-titular'></span>
-                </div>
-                <div class="campo">
                     <label for="acomodacao">Acomodação</label>
                     <select name="acomodacao" id="acomodacao">
                         <option value="Selecione" selected disabled>Selecione</option>
@@ -117,7 +112,7 @@
                     </select>
                     <span class='msg-erro msg-acomodacao'></span>
                 </div>
-                <div class="campo-metade">
+                <div class="campo">
                     <label for="abrangencia">Abrangência</label>
                     <select name="abrangencia" id="abrangencia">
                         <option value="Selecione" selected disabled>Selecione</option>
@@ -141,6 +136,6 @@
                 <input type="submit" name="btn-submit" id="btn-submit" value="Cadastrar">
         </form>
     </div>
-    <script src=""></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

@@ -16,31 +16,34 @@
     $abrangencia = mysqli_real_escape_string($conexao, $_POST['abrangencia']);
     $email = mysqli_real_escape_string($conexao, trim($_POST['email']));
     $telefone = mysqli_real_escape_string($conexao, trim($_POST['telefone']));
+    $id = mysqli_real_escape_string($conexao, trim($_POST['id']));
 
-    $sql = "insert into contato (email, contato) values('$email', '$telefone');";
+    $sql = "select id_convenio, id_contato from paciente where id = '$id'";
+    $resultado = mysqli_query($conexao, $sql);
+    $dados = mysqli_fetch_array($resultado);
+    $id_contato = $dados['id_contato'];
+    $id_convenio = $dados['id_convenio'];
+
+    $sql = "update contato set email='$email', contato='$telefone' where contato.id = '$id_contato';";
 
     if($conexao->query($sql) === TRUE){
-        $id_contato = $conexao->insert_id;
-        echo "New record created successfully. Last inserted ID is: " . $id_contato;
+        echo "<br>"."Contato atualizado com Sucesso"."<br>";
     } else {
         echo "Error: " . $sql . "<br>" . $conexao->error;
     }
 
-    $sql = "insert into conveniomedico (plano, registro, acomodacao, abrangencia) values ('$plano', '$registro', '$acomodacao', '$abrangencia');";
+    $sql = "update conveniomedico set plano='$plano', registro='$registro', acomodacao='$acomodacao', abrangencia='$abrangencia' where conveniomedico.id = '$id_convenio';";
 
     if($conexao->query($sql) === TRUE){
-        $id_convenio = $conexao->insert_id;
-        echo "New record created successfully. Last inserted ID is: " . $id_convenio;
+        echo "<br>"."Plano de Saúde atualizado com Sucesso"."<br>";
     } else {
         echo "Error: " . $sql . "<br>" . $conexao->error;
     }
 
-    $sql = "insert into paciente (id_convenio, id_contato, nome, cpf, nascimento, sexo, estado_civil, cidade_natal, uf, profissao) 
-    values('$id_convenio', '$id_contato', '$nome', '$cpf', '$datanascimento', '$sexo', '$estadocivil', '$cidadenatal', '$uf', '$profissao');";
+    $sql = "update paciente set nome='$nome', cpf='$cpf', nascimento='$datanascimento', sexo='$sexo', estado_civil='$estadocivil', cidade_natal='$cidadenatal', uf='$uf', profissao='$profissao' where paciente.id = '$id';";
 
     if($conexao->query($sql) === TRUE){
-        $id_paciente = $conexao->insert_id;
-        echo "New record created successfully. Last inserted ID is: " . $id_paciente;
+        echo "<br>"."Informações Gerais Atualizadas com Sucesso"."<br>";
     } else {
         echo "Error: " . $sql . "<br>" . $conexao->error;
     }
